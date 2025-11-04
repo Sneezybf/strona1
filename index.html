@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beautiflow Partner</title>
+    
+    <!-- Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles & Tailwind Config -->
+    <style>
+        @keyframes subtle-grid {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        :root {
+            --brand-bg: #0D0D10;
+            --brand-surface: #1A1A1E;
+            --brand-light: #F9FAFB;
+            --brand-muted: #9CA3AF;
+            --brand-primary: #F472B6; /* Vibrant Rose Pink */
+            --brand-primary-glow: rgba(244, 114, 182, 0.2);
+        }
+        body {
+            background-color: var(--brand-bg);
+            font-family: 'Inter', sans-serif;
+            color: var(--brand-light);
+            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: subtle-grid 30s linear infinite;
+        }
+        .animate-fade-in {
+            animation: fade-in 0.5s ease-out forwards;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-bg': 'var(--brand-bg)',
+                        'brand-surface': 'var(--brand-surface)',
+                        'brand-light': 'var(--brand-light)',
+                        'brand-muted': 'var(--brand-muted)',
+                        'brand-primary': 'var(--brand-primary)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow-primary': `0 0 15px var(--brand-primary-glow), 0 0 5px var(--brand-primary-glow)`,
+                    },
+                    animation: {
+                        'fade-in': 'fade-in 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        'fade-in': {
+                            'from': { opacity: 0, transform: 'translateY(10px)' },
+                            'to': { opacity: 1, transform: 'translateY(0)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Import Map -->
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/"
+      }
+    }
+    </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
